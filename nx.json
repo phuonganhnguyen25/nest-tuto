@@ -2,5 +2,28 @@
   "extends": "nx/presets/npm.json",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "defaultBase": "master",
-  "nxCloudAccessToken": "ZDZiYTNkNTEtN2NhNi00Njc3LTk3MWQtZjE2Yjc5ZjgwOWYyfHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "ZDZiYTNkNTEtN2NhNi00Njc3LTk3MWQtZjE2Yjc5ZjgwOWYyfHJlYWQtd3JpdGU=",
+  "plugins": [
+    {
+      "plugin": "@nx/webpack/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "plugin": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      },
+      "exclude": ["src/app-e2e/**/*"]
+    }
+  ]
 }
